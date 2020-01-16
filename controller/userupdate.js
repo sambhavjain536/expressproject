@@ -1,8 +1,11 @@
 var express=require('express');
 var router=express.Router();
-var user=require("../model/user");
+var user = require("../model/user");
+var mongodb=require("mongodb")
+
 router.get("/",function(req,res){
-    console.log("edit and update page is running ");
-    var pagedata={"pagename":"userupdate","tittle":"pagedata of edit"}
-    res.render("layout",pagedata);
+    var pagedata={"pagename":"userupdate","title":"sign up page"};
+   res.render("layout",pagedata);
+   console.log("sign up is  page is sdtarted");
 });
+module.exports=router;
