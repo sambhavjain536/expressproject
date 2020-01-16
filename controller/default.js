@@ -6,7 +6,7 @@ var user = require("../model/user");
 router.use("/login",require("./login"));
 router.use("/signup",require("./signup"));
 router.use("/showdata",require("./showdata"));
-
+router.use("/userupdate",require("./userupdate"));
 function backedor(req,res,next){
     if(!req.session.user_loged_in){
       res.redirect("/login")
