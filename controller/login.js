@@ -1,37 +1,42 @@
-var express=require("express");
+var express=require('express');
 var router=express.Router();
-var user = require("../model/user");
-var mongodb=require("mongodb")
-
+var user=require("../model/user");
 router.get("/",function(req,res){
-    var pagedata={"pagename":"login","title":"login page"};
-   res.render("layout",pagedata);
-   console.log("login page is sdtarted")
+  console.log("here is page is open for the login page ");
+    var pagedata ={"pagename":"login","tittle":"login page"}
+    res.render("layout",pagedata);
+    console.log(req.body,"rrrrrr555555555555555555555")
 });
 router.post("/",function(req,res){
-    var obj={};
-    obj.fn=req.body.fn; 
-    obj.ln=req.body.ln;
-    obj.email=req.body.email;
-    obj.number=req.body.number;
- 
-    user.insert(req.body, function(err, result){
-            if(err){
-                console.log("errrrr",err);
-            }
-            else(result)
-            console.log(result);
-            console.log("herer is redirect pagre is open");
-            res.redirect('/showdata');
-        });
-});
+console.log("some data of  login page ");
+var obj={};
+obj.email=req.body.email;
+obj.pswd=req.body.pswd;
+console.log(obj);
 
-router.post("/update",function(req,res){
-    var obj={name:"sanjay",surname:"patidaar"}
-    user.update({ $or: [ {email:"sanjaypatidar402@gmail.com"},{email:"sawti@gmail.com"} ] } ,obj,function(err,result){
+user.findwhere(obj,function(err,result){
+  if(err)
+  {
+    console.log("err");
+      }
+  else
+{
+  console.log(result,"fguttu")
+  if(result.length>0)
+  {
+    req.session.userid=result[0].id;
+    req.session.name=result[0].name;
+    req.session.user_loged_in=true;
+     res.redirect("/showdata")
+   
+  }
+  else{
+    res.send("incorrect password and email");
+    
+  }
+}
 
-    })
 })
-
+});    
 
 module.exports=router;
