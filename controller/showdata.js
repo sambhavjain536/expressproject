@@ -1,6 +1,7 @@
 var express=require('express');
 var router=express.Router();
 var user = require("../model/user");
+var mongodb=require("mongodb")
 router.get("/",function(req,res){
     user.find(function(err,result){
       if(err){
@@ -15,8 +16,23 @@ router.get("/",function(req,res){
       }
 
     
+})
 });
+
+router.get("/delete/:id",function(req,res){
+    var id =req.params.id;
+    user.findwhere({_id:mongodb.ObjectId(id)},function(err, result){
+        console.log(result);
+        console.log("uhdbdfuvhabdsf");
+        var pagedata={"title":"showdata","pagename":"showdata","data":result[0]};
+        res.render("layout",pagedata);
+        
+
+})
 });
+
+
+
 
 
 

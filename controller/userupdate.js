@@ -29,5 +29,7 @@ router.get("/edit/:id", function(req, res){
         var pagedata={"title":"updateuser","pagename":"userupdate","data":result[0]};
         res.render("layout",pagedata);
     })
-});    
+});   
+
+
 module.exports=router;
