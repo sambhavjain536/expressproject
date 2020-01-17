@@ -4,6 +4,7 @@ var path=require("path");
 var user = require("../model/user");
 
 router.use("/login",require("./login"));
+router.use("/logout",require("./logout"));
 router.use("/signup",require("./signup"));
 router.use("/showdata",backedor ,require("./showdata"));
 router.use("/userupdate",require("./userupdate"));

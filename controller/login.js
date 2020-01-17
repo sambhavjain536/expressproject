@@ -8,6 +8,8 @@ router.get("/",function(req,res){
     res.render("layout",pagedata);
     console.log(req.body,"rrrrrr555555555555555555555")
 });
+
+
 router.post("/",function(req,res){
 console.log("some data of  login page ");
 var obj={};
