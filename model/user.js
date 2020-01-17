@@ -33,7 +33,7 @@ module.exports.update=function(where,obj,cb){
     connect.init(function(err,client){
       var db = client.db("firstnodetest")
       console.log("update query is run")
-          db.collection('user').update(where, {$set: {ln:"Jessica"}},cb);
+          db.collection('user').updateOne(where, {$set: obj},cb);
       }); 
   } 
   module.exports.delete=function(where,obj)

@@ -32,7 +32,7 @@ router.post("/update",function(req,res){
     user.update({ $or: [ {email:"sanjaypatidar402@gmail.com"},{email:"sawti@gmail.com"} ] } ,obj,function(err,result){
 
     })
-})
+});
 
 
 module.exports=router;

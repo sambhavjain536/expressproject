@@ -8,14 +8,14 @@ router.get("/",function(req,res){
       }
       if(result)
       {
-          console.log(result);
-      }
-
-    
+          
     var pagedata={"pagename":"showdata","tittle":"showdata of form post","data":result};
     res.render("layout",pagedata);
     console.log("showdata is running");
-})
+      }
+
+    
+});
 });
 
 
