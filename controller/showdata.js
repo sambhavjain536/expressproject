@@ -21,20 +21,14 @@ router.get("/",function(req,res){
 
 router.get("/delete/:id",function(req,res){
     var id =req.params.id;
-    user.findwhere({_id:mongodb.ObjectId(id)},function(err, result){
+    user.delete({_id:mongodb.ObjectId(id)},function(err, result){
         console.log(result);
         console.log("uhdbdfuvhabdsf");
         var pagedata={"title":"showdata","pagename":"showdata","data":result[0]};
-        res.render("layout",pagedata);
-        
+        res.redirect("/showdata");
 
 })
 });
-
-
-
-
-
 
 
 

@@ -36,12 +36,12 @@ module.exports.update=function(where,obj,cb){
           db.collection('user').updateOne(where, {$set: obj},cb);
       }); 
   } 
-  module.exports.delete=function(where,obj,cb)
+  module.exports.delete=function(where,cb)
   {
       connect.init(function(err,client){
+        var db = client.db("firstnodetest")
         console.log("delete query is running ");
-        db.collection('user').deleteOne(where, {$set: obj},cb)
-        products.deleteOne({_id: new mongodb.ObjectID(id)});
+        db.collection('user').remove(where,cb);
       });
   }
 
