@@ -27,7 +27,7 @@
       <li><a href="#">help</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <% if(session.name){%>
+      <% if(session.user_loged_in){%>
         <li><a href="logout"><span class="glyphicon glyphicon-user"></span>logout</a></li>
         <% }else{%>  
       <li><a href="login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
