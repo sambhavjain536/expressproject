@@ -2,14 +2,15 @@ var express=require('express');
 var router=express.Router();
 var user=require("../model/user");
 var nodemailer = require('nodemailer');
+
 router.get("/",function(req,res){
   console.log("here is page is open for the login page ");
-    var pagedata ={"pagename":"login","tittle":"login page"}
+    var pagedata ={"pagename":"login","tittle":"login page",massage:req.flash('msg')};
     res.render("layout",pagedata);
     console.log(req.body,"rrrrrr555555555555555555555")
 });
 
-
+  
 router.post("/",function(req,res){
 console.log("some data of  login page ");
 var obj={};
@@ -61,8 +62,10 @@ user.findwhere(obj,function(err,result){
    
   }
   else{
-    res.send("incorrect password and email");
-    
+    req.flash({"msg":"user name and passwordi incorrect"})
+    // res.send("incorrect password and email");
+    console.log("sasnjay")
+    res.redirect("/login");
   }
 }
 

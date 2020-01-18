@@ -27,12 +27,12 @@ router.post("/",function(req,res){
         });
 });
 
-router.post("/update",function(req,res){
-    var obj={name:"sanjay",surname:"patidaar"}
-    user.update({ $or: [ {email:"sanjaypatidar402@gmail.com"},{email:"sawti@gmail.com"} ] } ,obj,function(err,result){
+// router.post("/update",function(req,res){
+//     var obj={name:"sanjay",surname:"patidaar"}
+//     user.update({ $or: [ {email:"sanjaypatidar402@gmail.com"},{email:"sawti@gmail.com"} ] } ,obj,function(err,result){
 
-    })
-});
+//     })
+// });
 
 
 module.exports=router;

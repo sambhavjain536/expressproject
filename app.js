@@ -1,11 +1,13 @@
 var express=require("express");
 var app=express();
+var flash = require('express-flash')
 var bodyparser=require("body-parser");
 var session=require("express-session");
 var cookie=require("cookie-parser");
 
   app.set('view engine', 'ejs');
  app.use(bodyparser());
+ app.use(flash())
 app.use(cookie());
 app.use(session({
   secret: 'ziasy',

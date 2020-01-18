@@ -15,7 +15,7 @@ router.post('/',function(req,res){
           if(err){
               res.send(err)
           }else{
-              res.redirect("showdata")
+              res.redirect("showdata");
           }
       })
 });
